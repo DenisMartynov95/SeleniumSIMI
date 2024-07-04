@@ -108,6 +108,8 @@ public class SIMainPage {
         String siText = "Windows";
         String miText = "Mac";
         if (getMiTextBtn().equals(miText) && getSiTextBtn().equals(siText)) {
+            // Логирую локатор успешного нахождения нужной кнопки
+            System.out.println("Логирую локатор для кнопки: " + driver.findElement(btnGoMI).getText());
             driver.findElement(btnGoMI).click();
 
         } else {
