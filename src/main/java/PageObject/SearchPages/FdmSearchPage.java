@@ -14,6 +14,7 @@ public class FdmSearchPage {
             /*
                     Локаторы для ассерта
                                                 */
+
     private final By necessaryName = By.xpath("/html/body/div[1]/div[3]/div/div[2]/div[1]/h1/span[1]");
     public boolean checkSuccessSearch() {
         return driver.findElement(necessaryName).getText().contains(Asserts.NAME_PROGRAM_FDM);

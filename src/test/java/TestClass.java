@@ -30,12 +30,12 @@ public class TestClass {
         driver.manage().timeouts().implicitlyWait(WaitSettings.WAIT_2_SEC, TimeUnit.SECONDS);
     }
     /*
-        Тест-сьют №1 по поиску ресторана через поля для ввода
-                                                              */
+        Смоук - кейс №1 по поиску ресторана через поля для ввода
+                                                                */
     @Test
     @Step
     @DisplayName("Тест №1: Поиск программы из главной страницы")
-    public  void  t1_1_searchProgram(){
+    public  void  t1_searchProgram(){
         driver.get(UrlSettings.SI_MAIN_PAGE_URL);
         boolean checkSuccessSearch = new SIMainPage(driver)
                 .SearchProgram()
@@ -45,4 +45,20 @@ public class TestClass {
                 .getNameProgram();
         System.out.println("Тест №1 прошел успешно, страницы открылась, программа " + getNameProgram + " найдена");
     }
+
+    /*
+      Смоук - кейс  №2 работоспособность кнопок смены баннера
+                                                            */
+    @Test
+    @Step
+    @DisplayName("Тест №2: Проверка работы баннеров на сервере SI")
+    public void t2_advChange(){
+        driver.get(UrlSettings.SI_MAIN_PAGE_URL);
+        SIMainPage advChange = new SIMainPage(driver)
+                .advChange();
+
+    }
+
+
+
 }
