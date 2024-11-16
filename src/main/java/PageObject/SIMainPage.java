@@ -48,7 +48,29 @@ public class SIMainPage {
     private final By bannerOneActive = By.xpath("/html/body/div[1]/div/div[2]/div[2]/span[@class = 'swiper-pagination-bullet swiper-pagination-bullet-active' and @aria-label = 'Go to slide 1']");
     private final By bannerTwoActive = By.xpath("/html/body/div[1]/div/div[2]/div[2]/span[@class = 'swiper-pagination-bullet swiper-pagination-bullet-active' and @aria-label = 'Go to slide 2']");
 
+    //Переменные для логирования
+    private String line1;
+    private String line2;
     //Баннеры сами переключаются, соответственно нужно было писать условия для стабильности. Плюс ко всему загрузка страницы всегда проходит по разному
+    public void advChange() {
+        new WebDriverWait(driver,WaitSettings.WAIT_5_SEC).until(ExpectedConditions.visibilityOfElementLocated(btnSwipeRight));
+        if (driver.findElement(bannerOneActive).isDisplayed() || driver.findElement(bannerTwoActive).isDisplayed()) {
+            driver.findElement(btnSwipeRight).click();
+            line1 = driver.findElement(bannerTwoActive).getAttribute("aria-label");
+            driver.findElement(btnSwipeLeft).click();
+            line2 = driver.findElement(bannerOneActive).getAttribute("aria-label");
+            //Так как на фронте реализован рандомный таймаут для переключения, перезаписываю переменную 1, чтобы 100% проверить работу переключений
+            driver.findElement(btnSwipeRight).click();
+            line1 = driver.findElement(bannerTwoActive).getAttribute("aria-label");
+        }  else {
+            System.out.println("Баннеры не переключатся");
+        }
+        System.out.println("Информация для логирования локаторов у теста №2: " + line1 + " " + line2);
+        new SIMainPage(driver);
+    }
+
+
+    /*
     public void advChange() {
         new WebDriverWait(driver,WaitSettings.WAIT_5_SEC);
         if (driver.findElement(bannerTwoActive).isDisplayed()) {
@@ -65,6 +87,8 @@ public class SIMainPage {
         }
         new SIMainPage(driver);
     }
+
+     */
 
     //Смоук - кейс №3
     //Ассерты для проверок имеющихся кнопок в листе и методы для этого

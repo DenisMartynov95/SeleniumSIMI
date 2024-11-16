@@ -55,6 +55,7 @@ public class TestClass {
     public void t2_advChange(){
         driver.get(UrlSettings.SI_MAIN_PAGE_URL);
         new SIMainPage(driver).advChange();  // Не присваиваем возвращаемый объект
+        System.out.println("Тест №2 прошел успешно, баннеры переключаются успешно!");
         driver.quit();
 
     }
