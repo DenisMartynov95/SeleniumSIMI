@@ -7,6 +7,6 @@ public class Asserts {
     public static final String NAME_PROGRAM_FDM = "Free Download Manager";
 
     //Тест №3: Работоспособность кнопок смена баннеров
-    public static final String NAME_MI_PAGE = "Mac";
+    public static final String NAME_MI_PAGE = "Mac Informer";
 
 }

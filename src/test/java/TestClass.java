@@ -25,7 +25,7 @@ public class TestClass {
     @Before
     public void SetUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless"); // , "--headless"
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage"); // , "--headless"
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WaitSettings.WAIT_2_SEC, TimeUnit.SECONDS);
@@ -45,6 +45,7 @@ public class TestClass {
         String getNameProgram = new FdmSearchPage(driver) // А теперь выведу текст успешного завершения теста с наименованием найденной проги
                 .getNameProgram();
         System.out.println("Тест №1 прошел успешно, страницы открылась, программа " + getNameProgram + " найдена");
+        driver.quit();
     }
 
       //Смоук - кейс  №2 работоспособность кнопок смены баннера
@@ -54,6 +55,8 @@ public class TestClass {
     public void t2_advChange(){
         driver.get(UrlSettings.SI_MAIN_PAGE_URL);
         new SIMainPage(driver).advChange();  // Не присваиваем возвращаемый объект
+        driver.quit();
+
     }
 
     //Смоук - кейс  №3 переход на сайт MI
@@ -69,8 +72,9 @@ public class TestClass {
         String getNamePage = new MIMainPage(driver)
                 .getNameMiPage();
         System.out.println("Тест №3 прошел успешно, страницы открылась " + getNamePage + " найдена");
-    }
+        driver.quit();
 
+    }
 
 
 }

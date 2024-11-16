@@ -1,8 +1,12 @@
 package PageObject;
 
 import PageObject.SearchPages.FdmSearchPage;
+import WebDriverFactory.WaitSettings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SIMainPage {
     private final WebDriver driver;
@@ -37,23 +41,25 @@ public class SIMainPage {
                                     */
 
     //Смоук - кейс №2
-    private final By btnSwipeLeft = By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[@class = 'bx-controls-direction']/a[@class = 'swiper-button-prev bx-prev']");
-    private final By btnSwipeRight = By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[@class = 'bx-controls-direction']/a[@class = 'swiper-button-next bx-next']");
+    private final By btnSwipeLeft = By.xpath("/html/body/div[1]/div/div[2]/div[2]/span[1]");
+    private final By btnSwipeRight = By.xpath("/html/body/div[1]/div/div[2]/div[2]/span[2]");
 
     //Ассерт для ожидания и проверки смены баннера
     private final By bannerOneActive = By.xpath("/html/body/div[1]/div/div[2]/div[2]/span[@class = 'swiper-pagination-bullet swiper-pagination-bullet-active' and @aria-label = 'Go to slide 1']");
     private final By bannerTwoActive = By.xpath("/html/body/div[1]/div/div[2]/div[2]/span[@class = 'swiper-pagination-bullet swiper-pagination-bullet-active' and @aria-label = 'Go to slide 2']");
 
-    //Реализация логики внутри одного метода, чтобы не распылять по классам функционал
+    //Баннеры сами переключаются, соответственно нужно было писать условия для стабильности. Плюс ко всему загрузка страницы всегда проходит по разному
     public void advChange() {
-        if (driver.findElement(bannerOneActive).isEnabled()) {
-            driver.findElement(btnSwipeRight).click();
-            if (driver.findElement(bannerTwoActive).isEnabled()) {
-                driver.findElement(btnSwipeLeft).click();
+        new WebDriverWait(driver,WaitSettings.WAIT_5_SEC);
+        if (driver.findElement(bannerTwoActive).isDisplayed()) {
+            driver.findElement(btnSwipeLeft).click();
+
+            new WebDriverWait(driver,WaitSettings.WAIT_5_SEC);
+            if (driver.findElement(bannerOneActive).isDisplayed()) {
+                driver.findElement(btnSwipeRight).click();
             }
-            if (driver.findElement(bannerOneActive).isEnabled()) {
-                System.out.println("Тест кейс №2: Прошел успешно! Баннеры переключаются");
-            }
+            System.out.println("Тест кейс №2: Прошел успешно! Баннеры переключаются");
+
         } else {
             System.out.println("Баннеры не переключатся");
         }

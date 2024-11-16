@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class MIMainPage {
     private final WebDriver driver;
@@ -24,16 +25,9 @@ public class MIMainPage {
 
 
     //Смоук - кейс №3 продолжение с обработкой ассерта
-    private final By necessaryNamePage = By.xpath("/html/body/header/div[1]/div/div[4]/div[1]/div[1]");
+    private final By necessaryNamePage = By.xpath(".//header/div[1]/div/a/img");
     public boolean checkSuccessRedirect() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        Boolean element = wait.until(ExpectedConditions.textToBePresentInElementLocated(necessaryNamePage,"Mac"));
-        if(element) {
-            System.out.println("Тест кейс №3 успешен");
-        } else {
-            System.out.println("Тест кейс №3 провален!");
-        }
-        return element;
+        return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_MI_PAGE);
     }
     public String getNameMiPage() {
         return driver.findElement(necessaryNamePage).getText();
