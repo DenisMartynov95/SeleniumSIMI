@@ -5,9 +5,10 @@ import PageObject.SearchPages.FdmSearchPage;
 import WebDriverFactory.WaitSettings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Objects;
 
 public class SIMainPage {
     private final WebDriver driver;
@@ -120,7 +121,7 @@ public class SIMainPage {
         return new MIMainPage(driver);
     }
 
-    //Смоук - кейс №4 продолжение с обработкой ассерта
+    //Смоук - кейс №4 ПРОДОЛЖЕНИЕ с обработкой ассерта
     private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
 
     public boolean checkSuccessRedirect() {
@@ -134,6 +135,19 @@ public class SIMainPage {
     public MIMainPage goToMiPageService(){
     driver.findElement(btnGoMIService).click();
     return new MIMainPage(driver);
+    }
+
+    //ПРОДОЛЖЕНИЕ тест №5, после обратного редиректа, здесь уже задаю ассерты и в конечном итоге проверяю
+    private final By checkNamePage = By.cssSelector("#top > div > a > img");
+    private final String needNamePage = "Software Informer";
+    public void checkSuccessRedirectBetweenServices() {
+        String lambda = driver.findElement(checkNamePage).getAttribute("alt");
+        if (Objects.equals(lambda, needNamePage)) {
+            System.out.println("Тест №5 прошел успешно, адрессация и обратная адрессация работают корректно!");
+    } else{
+            System.out.println("Тест №5 завершился не удачно, возможно проблема с локаторами:");
+            System.out.println("Локаторы для логгирования они должны быть одинаковыми: " + lambda + "\\" + needNamePage);
+        }
     }
 }
 

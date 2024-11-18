@@ -21,7 +21,7 @@ public class MIMainPage {
                                 */
 
 
-    //Смоук - кейс №3 продолжение с обработкой ассерта
+    //Смоук - кейс №3 ПРОДОЛЖЕНИЕ с обработкой ассерта
     private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
 
     public boolean checkSuccessRedirect() {
@@ -47,11 +47,12 @@ public class MIMainPage {
     }
 
     //Смоук - кейс №5 проверка работы редиректов на страницы посредством основных кнопок сервиса
-    //Продолжение сквозного теста, здесь проверяется что нужная страница открыта, а далее мы снова возвращаемся на SI сервис
+    //ПРОДОЛЖЕНИЕ сквозного теста, здесь проверяется что нужная страница открыта, а далее мы снова возвращаемся на SI сервис
     private final By btnGoSIService = By.cssSelector("body > div.wrapper-content > aside > div > div > a");
-    //Переменная для промежуточной проверки локатора сервиса, перед тем как перейти обратно в SI
+    //Переменные для промежуточной проверки локатора сервиса, перед тем как перейти обратно в SI
     private final By checkNamePage = By.cssSelector("#top > div > a > img");
     private final String needNamePage = "Mac Informer";
+
     public SIMainPage goToSiService() {
         String lambda = driver.findElement(checkNamePage).getAttribute("alt");
         if (Objects.equals(lambda, needNamePage)) {

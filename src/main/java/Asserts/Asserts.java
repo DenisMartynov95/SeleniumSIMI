@@ -11,4 +11,5 @@ public class Asserts {
 
     //Тест №4: переход на сайт SI через лист
     public static final String NAME_SI_PAGE = "Windows";
+
 }

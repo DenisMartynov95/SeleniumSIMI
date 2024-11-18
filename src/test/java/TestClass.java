@@ -25,7 +25,7 @@ public class TestClass {
     @Before
     public void SetUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless"); // , "--headless"
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage"); // , "--headless"
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WaitSettings.WAIT_2_SEC, TimeUnit.SECONDS);
@@ -97,9 +97,11 @@ public class TestClass {
     @DisplayName("Тест №5: Проверка работы редиректов между сервисами")
     public void t5_redirectBetweenPages(){
         driver.get(UrlSettings.SI_MAIN_PAGE_URL);
-        boolean checkSuccessRedirect = new SIMainPage(driver)
+        new SIMainPage(driver)
                 .goToMiPageService()
-
+                .goToSiService()
+                .checkSuccessRedirectBetweenServices();
+        driver.quit();
     }
 
 
