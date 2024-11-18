@@ -57,7 +57,6 @@ public class TestClass {
         new SIMainPage(driver).advChange();  // Не присваиваем возвращаемый объект
         System.out.println("Тест №2 прошел успешно, баннеры переключаются успешно!");
         driver.quit();
-
     }
 
     //Смоук - кейс  №3 переход на сайт MI
@@ -72,10 +71,10 @@ public class TestClass {
         MatcherAssert.assertThat(Asserts.NAME_MI_PAGE, checkSuccessRedirect);
         String getNamePage = new MIMainPage(driver)
                 .getNameMiPage();
-        System.out.println("Тест №3 прошел успешно, страницы открылась " + getNamePage + " найдена");
+        System.out.println("Тест №3 прошел успешно, страница открылась " + getNamePage + " найдена");
         driver.quit();
-
     }
+
 
 
 }

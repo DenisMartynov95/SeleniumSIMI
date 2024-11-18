@@ -115,7 +115,6 @@ public class SIMainPage {
         } else {
             System.out.println("Тест кейс №3 провалился!");
         }
-        driver.findElement(btnGoMI).click();
         return new MIMainPage(driver);
     }
 

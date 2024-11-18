@@ -25,8 +25,10 @@ public class MIMainPage {
 
 
     //Смоук - кейс №3 продолжение с обработкой ассерта
-    private final By necessaryNamePage = By.xpath(".//header/div[1]/div/a/img");
+    private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
+
     public boolean checkSuccessRedirect() {
+        new WebDriverWait(driver,5).until(ExpectedConditions.textToBe(necessaryNamePage,"Mac"));
         return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_MI_PAGE);
     }
     public String getNameMiPage() {
