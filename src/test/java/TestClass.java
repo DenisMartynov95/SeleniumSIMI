@@ -59,7 +59,7 @@ public class TestClass {
         driver.quit();
     }
 
-    //Смоук - кейс  №3 переход на сайт MI
+    //Смоук - кейс  №3 переход на сайт MI через лист
     @Test
     @Step
     @DisplayName("Тест №3: Проверка работы перехода на сайт MI")
@@ -72,6 +72,22 @@ public class TestClass {
         String getNamePage = new MIMainPage(driver)
                 .getNameMiPage();
         System.out.println("Тест №3 прошел успешно, страница открылась " + getNamePage + " найдена");
+        driver.quit();
+    }
+
+    //Смоук - кейс  №4 переход на сайт SI через лист
+    @Test
+    @Step
+    @DisplayName("Тест №4: Проверка работы перехода на сайт SI")
+    public void t4_redirectOnSIPage(){
+        driver.get(UrlSettings.MI_MAIN_PAGE_URL);
+        boolean checkSuccessRedirect = new MIMainPage(driver)
+                .goToSIPage()
+                .checkSuccessRedirect();
+        MatcherAssert.assertThat(Asserts.NAME_SI_PAGE, checkSuccessRedirect);
+        String getNamePage = new MIMainPage(driver)
+                .getNameMiPage();
+        System.out.println("Тест №4 прошел успешно, страница открылась " + getNamePage + " найдена");
         driver.quit();
     }
 

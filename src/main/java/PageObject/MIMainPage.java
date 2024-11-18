@@ -1,15 +1,10 @@
 package PageObject;
 
 import Asserts.Asserts;
-import WebDriverFactory.WaitSettings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class MIMainPage {
     private final WebDriver driver;
@@ -33,6 +28,20 @@ public class MIMainPage {
     }
     public String getNameMiPage() {
         return driver.findElement(necessaryNamePage).getText();
+    }
+
+    //Смоук - кейс №3 переход на сайт SI через лист
+    private final By openLi = By.xpath("//*[@id=\"top\"]/div/div[4]/div[1]/div[1]");
+    private final By btnGoSI = By.xpath("//*[@id=\"top\"]/div/div[4]/div[1]/div[2][@class='platform_dropdown platforms']/nav/a[@class='windows']");
+
+    public SIMainPage goToSIPage() {
+        driver.findElement(openLi).click();
+        if (driver.findElement(btnGoSI).isDisplayed()) {
+            driver.findElement(btnGoSI).click();
+        } else {
+            System.out.println("Тест кейс №4 провалился!");
+        }
+        return new SIMainPage(driver);
     }
 
 }

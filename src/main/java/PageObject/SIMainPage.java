@@ -1,5 +1,6 @@
 package PageObject;
 
+import Asserts.Asserts;
 import PageObject.SearchPages.FdmSearchPage;
 import WebDriverFactory.WaitSettings;
 import org.openqa.selenium.By;
@@ -90,7 +91,7 @@ public class SIMainPage {
 
      */
 
-    //Смоук - кейс №3
+    //Смоук - кейс №3 переход на сайт MI через лист
     //Ассерты для проверок имеющихся кнопок в листе и методы для этого
     private final By textMiBtn = By.xpath("/html/body/header/div[1]/div/div[4]/div[1]/div[2]/nav/a[1]");
     private final By textSiBtn = By.xpath("/html/body/header/div[1]/div/div[4]/div[1]/div[2]/nav/a[2]");
@@ -118,5 +119,12 @@ public class SIMainPage {
         return new MIMainPage(driver);
     }
 
+    //Смоук - кейс №4 продолжение с обработкой ассерта
+    private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
+
+    public boolean checkSuccessRedirect() {
+        new WebDriverWait(driver,5).until(ExpectedConditions.textToBe(necessaryNamePage,"Windows"));
+        return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_SI_PAGE);
+    }
 
 }
