@@ -91,6 +91,16 @@ public class TestClass {
         driver.quit();
     }
 
+    //Смоук - кейс №5 проверка работы редиректов на страницы посредством основных кнопок сервиса
+    @Test
+    @Step
+    @DisplayName("Тест №5: Проверка работы редиректов между сервисами")
+    public void t5_redirectBetweenPages(){
+        driver.get(UrlSettings.SI_MAIN_PAGE_URL);
+        boolean checkSuccessRedirect = new SIMainPage(driver)
+                .goToMiPageService()
+
+    }
 
 
 }

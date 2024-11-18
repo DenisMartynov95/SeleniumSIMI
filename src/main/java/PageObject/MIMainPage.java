@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Objects;
+
 public class MIMainPage {
     private final WebDriver driver;
 
@@ -40,6 +42,22 @@ public class MIMainPage {
             driver.findElement(btnGoSI).click();
         } else {
             System.out.println("Тест кейс №4 провалился!");
+        }
+        return new SIMainPage(driver);
+    }
+
+    //Смоук - кейс №5 проверка работы редиректов на страницы посредством основных кнопок сервиса
+    //Продолжение сквозного теста, здесь проверяется что нужная страница открыта, а далее мы снова возвращаемся на SI сервис
+    private final By btnGoSIService = By.cssSelector("body > div.wrapper-content > aside > div > div > a");
+    //Переменная для промежуточной проверки локатора сервиса, перед тем как перейти обратно в SI
+    private final By checkNamePage = By.cssSelector("#top > div > a > img");
+    private final String needNamePage = "Mac Informer";
+    public SIMainPage goToSiService() {
+        String lambda = driver.findElement(checkNamePage).getAttribute("alt");
+        if (Objects.equals(lambda, needNamePage)) {
+            driver.findElement(btnGoSIService).click();
+        } else {
+            System.out.println("Тест №5 провалился, так как на странице MI локатор не совпал");
         }
         return new SIMainPage(driver);
     }

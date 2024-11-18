@@ -52,9 +52,10 @@ public class SIMainPage {
     //Переменные для логирования
     private String line1;
     private String line2;
+
     //Баннеры сами переключаются, соответственно нужно было писать условия для стабильности. Плюс ко всему загрузка страницы всегда проходит по разному
     public void advChange() {
-        new WebDriverWait(driver,WaitSettings.WAIT_5_SEC).until(ExpectedConditions.visibilityOfElementLocated(btnSwipeRight));
+        new WebDriverWait(driver, WaitSettings.WAIT_5_SEC).until(ExpectedConditions.visibilityOfElementLocated(btnSwipeRight));
         if (driver.findElement(bannerOneActive).isDisplayed() || driver.findElement(bannerTwoActive).isDisplayed()) {
             driver.findElement(btnSwipeRight).click();
             line1 = driver.findElement(bannerTwoActive).getAttribute("aria-label");
@@ -63,7 +64,7 @@ public class SIMainPage {
             //Так как на фронте реализован рандомный таймаут для переключения, перезаписываю переменную 1, чтобы 100% проверить работу переключений
             driver.findElement(btnSwipeRight).click();
             line1 = driver.findElement(bannerTwoActive).getAttribute("aria-label");
-        }  else {
+        } else {
             System.out.println("Баннеры не переключатся");
         }
         System.out.println("Информация для логирования локаторов у теста №2: " + line1 + " " + line2);
@@ -123,8 +124,16 @@ public class SIMainPage {
     private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
 
     public boolean checkSuccessRedirect() {
-        new WebDriverWait(driver,5).until(ExpectedConditions.textToBe(necessaryNamePage,"Windows"));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.textToBe(necessaryNamePage, "Windows"));
         return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_SI_PAGE);
     }
 
+    //Смоук - кейс №5 проверка работы редиректов на страницы посредством основных кнопок сервиса
+    private final By btnGoMIService = By.cssSelector("body > div.wrapper-content > aside > div > div > a");
+
+    public MIMainPage goToMiPageService(){
+    driver.findElement(btnGoMIService).click();
+    return new MIMainPage(driver);
+    }
 }
+
