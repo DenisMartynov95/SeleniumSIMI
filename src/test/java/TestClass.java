@@ -103,6 +103,10 @@ public class TestClass {
                 .checkSuccessRedirectBetweenServices();
         driver.quit();
     }
+    //Смоук-тест №6
+    @Test
+    @Step
+    @DisplayName("")
 
 
 }
