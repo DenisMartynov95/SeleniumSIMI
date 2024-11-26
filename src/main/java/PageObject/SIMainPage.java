@@ -4,7 +4,9 @@ import Asserts.Asserts;
 import PageObject.SearchPages.FdmSearchPage;
 import WebDriverFactory.WaitSettings;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -147,6 +149,22 @@ public class SIMainPage {
     } else{
             System.out.println("Тест №5 завершился не удачно, возможно проблема с локаторами:");
             System.out.println("Локаторы для логгирования они должны быть одинаковыми: " + lambda + "\\" + needNamePage);
+        }
+    }
+
+    //Смоук - кейс №6, работоспособность кнопки Top
+    private final By btnGoTop = By.xpath(".//div[@class = 'right_column']/a[@id = 'float_top']");
+    //Локатор для скролла вниз
+    private final By footerLocator = By.xpath(".//footer");
+
+    public void checkOperabilityBtnTop() {
+        WebElement element = driver.findElement(footerLocator);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        if (driver.findElement(btnGoTop).isDisplayed()) {
+            driver.findElement(btnGoTop).click();
+        } else {
+            System.out.println("Тест №6 провалился");
+            System.out.println("Локатор не обнаружен");
         }
     }
 }

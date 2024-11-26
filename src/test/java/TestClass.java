@@ -25,7 +25,7 @@ public class TestClass {
     @Before
     public void SetUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage"); // , "--headless"
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless"); // , "--headless"
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WaitSettings.WAIT_2_SEC, TimeUnit.SECONDS);
@@ -103,10 +103,16 @@ public class TestClass {
                 .checkSuccessRedirectBetweenServices();
         driver.quit();
     }
-    //Смоук-тест №6
+    //Смоук-тест №6 Работоспособность кнопки top
     @Test
     @Step
-    @DisplayName("")
+    @DisplayName("Тест №6: Проверка работы кнопки Наверх на странице SI")
+    public void t6_btnGoTop() {
+        driver.get(UrlSettings.SI_MAIN_PAGE_URL);
+        new SIMainPage(driver)
+                .checkOperabilityBtnTop();
+        driver.quit();
+    }
 
 
 }
