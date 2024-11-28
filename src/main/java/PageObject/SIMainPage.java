@@ -155,17 +155,26 @@ public class SIMainPage {
     //Смоук - кейс №6, работоспособность кнопки Top
     private final By btnGoTop = By.xpath(".//div[@class = 'right_column']/a[@id = 'float_top']");
     //Локатор для скролла вниз
-    private final By footerLocator = By.xpath(".//footer");
-
+    private final By footerLocator = By.cssSelector("body > div.wrapper-content > div > section.questions > h2");
+    private final By headLocator = By.cssSelector("#search_inp");
     public void checkOperabilityBtnTop() {
         WebElement element = driver.findElement(footerLocator);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
-        if (driver.findElement(btnGoTop).isDisplayed()) {
-            driver.findElement(btnGoTop).click();
-        } else {
-            System.out.println("Тест №6 провалился");
-            System.out.println("Локатор не обнаружен");
+        try {
+            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+            driver.findElement(btnGoTop).isDisplayed();
+            if (element.isDisplayed()) {
+                driver.findElement(btnGoTop).click();
+                driver.wait(WaitSettings.WAIT_2_SEC);
+                driver.findElement(headLocator).isDisplayed();
+            } else {
+                System.out.println("Скролл наверх не сработал");
+            }
+        } catch (Exception e) {
+            System.out.println("Ошибка: " + e.getMessage());
+            System.out.println("Тест №6 провалился!");
         }
     }
+
+
 }
 
