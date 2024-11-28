@@ -24,9 +24,15 @@ public class MIMainPage {
     //Смоук - кейс №3 ПРОДОЛЖЕНИЕ с обработкой ассерта
     private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
 
+
     public boolean checkSuccessRedirect() {
-        new WebDriverWait(driver,5).until(ExpectedConditions.textToBe(necessaryNamePage,"Mac"));
-        return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_MI_PAGE);
+        try {
+            new WebDriverWait(driver,5).until(ExpectedConditions.textToBe(necessaryNamePage,"Mac"));
+            return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_MI_PAGE);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
     public String getNameMiPage() {
         return driver.findElement(necessaryNamePage).getText();
@@ -37,13 +43,18 @@ public class MIMainPage {
     private final By btnGoSI = By.xpath("//*[@id=\"top\"]/div/div[4]/div[1]/div[2][@class='platform_dropdown platforms']/nav/a[@class='windows']");
 
     public SIMainPage goToSIPage() {
-        driver.findElement(openLi).click();
-        if (driver.findElement(btnGoSI).isDisplayed()) {
-            driver.findElement(btnGoSI).click();
-        } else {
-            System.out.println("Тест кейс №4 провалился!");
+        try {
+            driver.findElement(openLi).click();
+            if (driver.findElement(btnGoSI).isDisplayed()) {
+                driver.findElement(btnGoSI).click();
+            } else {
+                System.out.println("Тест кейс №4 провалился!");
+            }
+            return new SIMainPage(driver);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        return new SIMainPage(driver);
+        return null;
     }
 
     //Смоук - кейс №5 проверка работы редиректов на страницы посредством основных кнопок сервиса
@@ -54,13 +65,18 @@ public class MIMainPage {
     private final String needNamePage = "Mac Informer";
 
     public SIMainPage goToSiService() {
-        String lambda = driver.findElement(checkNamePage).getAttribute("alt");
-        if (Objects.equals(lambda, needNamePage)) {
-            driver.findElement(btnGoSIService).click();
-        } else {
-            System.out.println("Тест №5 провалился, так как на странице MI локатор не совпал");
+        try {
+            String lambda = driver.findElement(checkNamePage).getAttribute("alt");
+            if (Objects.equals(lambda, needNamePage)) {
+                driver.findElement(btnGoSIService).click();
+            } else {
+                System.out.println("Тест №5 провалился, так как на странице MI локатор не совпал");
+            }
+            return new SIMainPage(driver);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        return new SIMainPage(driver);
+        return null;
     }
 
 }
