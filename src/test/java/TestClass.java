@@ -26,7 +26,7 @@ public class TestClass {
     @Before
     public void SetUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless"); // , "--headless"
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage"); // , "--headless"
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WaitSettings.WAIT_2_SEC, TimeUnit.SECONDS);
@@ -113,6 +113,18 @@ public class TestClass {
         new SIMainPage(driver)
                 .checkOperabilityBtnTop();
     }
+
+    //Смоук-тест №7 Работоспособность перехода по страницам категории
+    @Test
+    @Step
+    @DisplayName("Тест №7: Проверка работоспособности перехода по страницам категорий")
+    public void t7_checkCategoryPages() {
+        driver.get(UrlSettings.SI_MAIN_PAGE_URL);
+        new SIMainPage(driver)
+                .checkCategoriesLinks();
+    }
+
+
 
     @After
     public void closeBrowser() {

@@ -23,21 +23,22 @@ public class CheckSICategories {
     /*
         БЛОК КОДА связанный с локаторами, где должен храниться локатор для КЛИКА, чтобы открыть ответ на вопрос
                                                                                                                      */
-    public static final By CATEGORY1 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[1]/a[@class = 'cat_201']");
-    public static final By CATEGORY2 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[2]/a[@class = 'cat_243']");
-    public static final By CATEGORY3 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[3]/a[@class = 'cat_288']");
-    public static final By CATEGORY4 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[4]/a[@class = 'cat_221']");
-    public static final By CATEGORY5 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[5]/a[@class = 'cat_317']");
-    public static final By CATEGORY6 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[6]/a[@class = 'cat_228']");
-    public static final By CATEGORY7 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[7]/a[@class = 'cat_208']");
-    public static final By CATEGORY8 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[8]/a[@class = 'cat_260']");
-    public static final By CATEGORY9 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[9]/a[@class = 'cat_236']");
-    public static final By CATEGORY10 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[10]/a[@class = 'cat_216']");
-    public static final By CATEGORY11 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[11]/a[@class = 'cat_284']");
-    public static final By CATEGORY12 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[12]/a[@class = 'cat_307']");
-    public static final By CATEGORY13 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[13]/a[@class = 'cat_277']");
-    public static final By CATEGORY14 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[14]/a[@class = 'cat_266']");
-    public static final By CATEGORY15 = By.xpath(".//body/div[1]/aside/div/nav[@class='nav_cats']//li[15]/a[@class = 'cat_314']");
+    public static final By CATEGORY1 = By.xpath(".//div[1]/aside/div/nav/ul/li[2]/a[text() = 'Audio & Video']");
+    public static final By CATEGORY2 = By.xpath(".//div[1]/aside/div/nav/ul/li[3]/a[text() = 'Games']");
+    public static final By CATEGORY3 = By.xpath(".//div[1]/aside/div/nav/ul/li[4]/a[text() = 'System Tools']");
+    public static final By CATEGORY4 = By.xpath(".//div[1]/aside/div/nav/ul/li[5]/a[starts-with(text(), 'Design')]");
+    public static final By CATEGORY5 = By.xpath(".//div[1]/aside/div/nav/ul/li[6]/a[starts-with(text(), 'Mobile Phone')]");
+    public static final By CATEGORY6 = By.xpath(".//div[1]/aside/div/nav/ul/li[7]/a[starts-with(text(), 'Developer Too')]");
+    public static final By CATEGORY7 = By.xpath(".//div[1]/aside/div/nav/ul/li[8]/a[starts-with(text(), 'Busi')]");
+    public static final By CATEGORY8 = By.xpath(".//div[1]/aside/div/nav/ul/li[9]/a[starts-with(text(), 'Internet')]");
+    public static final By CATEGORY9 = By.xpath(".//div[1]/aside/div/nav/ul/li[10]/a[starts-with(text(), 'Edu')]");
+    public static final By CATEGORY10 = By.xpath(".//div[1]/aside/div/nav/ul/li[11]/a[starts-with(text(), 'Comm')]");
+    public static final By CATEGORY11 = By.xpath(".//div[1]/aside/div/nav/ul/li[12]/a[starts-with(text(), 'Anti')]");
+    public static final By CATEGORY12 = By.xpath(".//div[1]/aside/div/nav/ul/li[13]/a[starts-with(text(), 'The')]");
+    public static final By CATEGORY13 = By.xpath(".//div[1]/aside/div/nav/ul/li[14]/a[starts-with(text(), 'Prod')]");
+    public static final By CATEGORY14 = By.xpath(".//div[1]/aside/div/nav/ul/li[15]/a[starts-with(text(), 'Life')]");
+    public static final By CATEGORY15 = By.xpath(".//div[1]/aside/div/nav/ul/li[16]/a[starts-with(text(), 'Gener')]");
+    public static final By CATEGORY16 = By.xpath(".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']");
 
     /*
         БЛОК КОДА связанный с ожидаемым текстом
@@ -57,6 +58,7 @@ public class CheckSICategories {
     public static final String ASSERT_CATEGORY13 = "Productivity";
     public static final String ASSERT_CATEGORY14 = "Lifestyle";
     public static final String ASSERT_CATEGORY15 = "General";
+    public static final String ASSERT_CATEGORY16 = "AI";
 
 
     /*
@@ -89,13 +91,14 @@ public class CheckSICategories {
                 {CATEGORY13, ASSERT_CATEGORY13},
                 {CATEGORY14, ASSERT_CATEGORY14},
                 {CATEGORY15, ASSERT_CATEGORY15},
+                {CATEGORY16, ASSERT_CATEGORY16},
         };
     }
 
     @Before
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage");  //, "--headless"
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless");  //, "--headless"
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
@@ -116,7 +119,7 @@ public class CheckSICategories {
             System.out.println("ОЖИДАЕМЫЙ: " + expected + " равен ФАКТИЧЕСКОМУ: " + locator.toString());
             number = number + 1;
         }
-        System.out.println("Параметризированный тест прошел успешно " + number + " из 15");
+        System.out.println("Параметризированный тест прошел успешно " + number + " из 16");
     }
 
     @After
