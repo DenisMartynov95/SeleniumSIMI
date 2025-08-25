@@ -88,7 +88,7 @@ public class SIMainPage {
             Блок для кнопок категорий
                                          */
 
-    // Локаторы для гиперссылок страниц категорий
+    // Локаторы для гиперссылок страниц категорий, чтобы переходить по ним
     private final ArrayList<String> pagesLocators = new ArrayList<>();
     public ArrayList<String> getPagesLocators() {
         pagesLocators.add(0,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
@@ -109,6 +109,30 @@ public class SIMainPage {
         pagesLocators.add(15,".//a[starts-with(text(), 'Gener')]"); // "General" Page
         return pagesLocators;
     }
+
+    // Лист для поиска ассертовых локаторов на открытых страницах категорий
+    private final ArrayList<String> assertsNamePages = new ArrayList<>();
+    public ArrayList<String> getAssertsNamePages() {
+        pagesLocators.add(0,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
+        pagesLocators.add(1,".//a[starts-with(text(),  'Audio')]"); // Audio & Video Page
+        pagesLocators.add(2,".//a[starts-with(text(), 'Games')]"); // Games Page
+        pagesLocators.add(3,".//a[text() = 'System Tools']"); // System Tools Page
+        pagesLocators.add(4,".//a[starts-with(text(), 'Design')]"); // "Design & Photo" Page
+        pagesLocators.add(5,".//a[starts-with(text(), 'Mobile Phone')]"); // "Mobile Phone Utilities" Page
+        pagesLocators.add(6,".//a[starts-with(text(), 'Developer Too')]"); // "Developer Tools" Page
+        pagesLocators.add(7,".//a[starts-with(text(), 'Busi')]"); // "Business" Page
+        pagesLocators.add(8,".//a[starts-with(text(), 'Internet')]"); // "Internet Tools" Page
+        pagesLocators.add(9,".//a[starts-with(text(), 'Edu')]"); // "Education" Page
+        pagesLocators.add(10,".//a[starts-with(text(), 'Comm')]"); // "Communication" Page
+        pagesLocators.add(11,".//a[starts-with(text(), 'Anti')]"); // "Antivirus & Security" Page
+        pagesLocators.add(12,".//a[starts-with(text(), 'The')]"); // "Theming" Page
+        pagesLocators.add(13,".//a[starts-with(text(), 'Prod')]"); // "Productivity" Page
+        pagesLocators.add(14,".//a[starts-with(text(), 'Life')]"); // "Lifestyle" Page
+        pagesLocators.add(15,".//a[starts-with(text(), 'Gener')]"); // "General" Page
+        return assertsNamePages;
+    }
+
+
 
 //    private final By AI = By.xpath(".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']");
 //    private final By necessaryNameAI = By.xpath(".//section[1]/div/div/h1");
@@ -137,7 +161,6 @@ public class SIMainPage {
     public  void checkCategoriesLinks() {
         for (int l = 0; l < pagesLocators.size(); l++) {
             driver.findElement(By.id(getPagesLocators().get(l))).click(); // Возможно тут БАГ
-
             if ()
         }
 
