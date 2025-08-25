@@ -88,43 +88,59 @@ public class SIMainPage {
             Блок для кнопок категорий
                                          */
 
+    // Локаторы для гиперссылок страниц категорий
     private final ArrayList<String> pagesLocators = new ArrayList<>();
     public ArrayList<String> getPagesLocators() {
         pagesLocators.add(0,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
         pagesLocators.add(1,".//a[starts-with(text(),  'Audio')]"); // Audio & Video Page
         pagesLocators.add(2,".//a[starts-with(text(), 'Games')]"); // Games Page
-        pagesLocators.add(3,".//div[1]/aside/div/nav/ul/li[4]/a[text() = 'System Tools']"); // System Tools Page
-        pagesLocators.add(4,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
-        pagesLocators.add(5,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
-        pagesLocators.add(6,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
+        pagesLocators.add(3,".//a[text() = 'System Tools']"); // System Tools Page
+        pagesLocators.add(4,".//a[starts-with(text(), 'Design')]"); // "Design & Photo" Page
+        pagesLocators.add(5,".//a[starts-with(text(), 'Mobile Phone')]"); // "Mobile Phone Utilities" Page
+        pagesLocators.add(6,".//a[starts-with(text(), 'Developer Too')]"); // "Developer Tools" Page
+        pagesLocators.add(7,".//a[starts-with(text(), 'Busi')]"); // "Business" Page
+        pagesLocators.add(8,".//a[starts-with(text(), 'Internet')]"); // "Internet Tools" Page
+        pagesLocators.add(9,".//a[starts-with(text(), 'Edu')]"); // "Education" Page
+        pagesLocators.add(10,".//a[starts-with(text(), 'Comm')]"); // "Communication" Page
+        pagesLocators.add(11,".//a[starts-with(text(), 'Anti')]"); // "Antivirus & Security" Page
+        pagesLocators.add(12,".//a[starts-with(text(), 'The')]"); // "Theming" Page
+        pagesLocators.add(13,".//a[starts-with(text(), 'Prod')]"); // "Productivity" Page
+        pagesLocators.add(14,".//a[starts-with(text(), 'Life')]"); // "Lifestyle" Page
+        pagesLocators.add(15,".//a[starts-with(text(), 'Gener')]"); // "General" Page
         return pagesLocators;
     }
 
-    private final By AI = By.xpath(".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']");
-    private final By necessaryNameAI = By.xpath(".//section[1]/div/div/h1");
-
-    private final By AudioAndVideo = By.xpath(".//a[starts-with(text(),  'Audio')]");
-    private final By audioAndVideoLocator = By.xpath("/html/body/div[1]/div/section[1]/div/div[1]/h1");
-
-    private final By Games = By.xpath(".//a[starts-with(text(), 'Games')]");
-    private final By gamesLocator = By.xpath("/html/body/div[1]/div/section[1]/div/div[1]/h1");
-
-
-    private final By SystemTools= By.xpath(".//div[1]/aside/div/nav/ul/li[4]/a[text() = 'System Tools']");
-    private final By DesignAndPhoto = By.xpath(".//div[1]/aside/div/nav/ul/li[5]/a[starts-with(text(), 'Design')]");
-    private final By MobilePhone = By.xpath(".//div[1]/aside/div/nav/ul/li[6]/a[starts-with(text(), 'Mobile Phone')]");
-    private final By DeveloperTools = By.xpath(".//div[1]/aside/div/nav/ul/li[7]/a[starts-with(text(), 'Developer Too')]");
-    private final By Business= By.xpath(".//div[1]/aside/div/nav/ul/li[8]/a[starts-with(text(), 'Busi')]");
-    private final By InternetTools = By.xpath(".//div[1]/aside/div/nav/ul/li[9]/a[starts-with(text(), 'Internet')]");
-    private final By Education = By.xpath(".//div[1]/aside/div/nav/ul/li[10]/a[starts-with(text(), 'Edu')]");
-    private final By Communication = By.xpath(".//div[1]/aside/div/nav/ul/li[11]/a[starts-with(text(), 'Comm')]");
-    private final By AntivirusAndSecurity = By.xpath(".//div[1]/aside/div/nav/ul/li[12]/a[starts-with(text(), 'Anti')]");
-    private final By Theming = By.xpath(".//div[1]/aside/div/nav/ul/li[13]/a[starts-with(text(), 'The')]");
-    private final By Productivity = By.xpath(".//div[1]/aside/div/nav/ul/li[14]/a[starts-with(text(), 'Prod')]");
-    private final By Lifestyle = By.xpath(".//div[1]/aside/div/nav/ul/li[15]/a[starts-with(text(), 'Life')]");
-    private final By General = By.xpath(".//div[1]/aside/div/nav/ul/li[16]/a[starts-with(text(), 'Gener')]");
+//    private final By AI = By.xpath(".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']");
+//    private final By necessaryNameAI = By.xpath(".//section[1]/div/div/h1");
+//
+//    private final By AudioAndVideo = By.xpath(".//a[starts-with(text(),  'Audio')]");
+//    private final By audioAndVideoLocator = By.xpath("/html/body/div[1]/div/section[1]/div/div[1]/h1");
+//
+//    private final By Games = By.xpath(".//a[starts-with(text(), 'Games')]");
+//    private final By gamesLocator = By.xpath("/html/body/div[1]/div/section[1]/div/div[1]/h1");
+//
+//
+//    private final By SystemTools= By.xpath(".//div[1]/aside/div/nav/ul/li[4]/a[text() = 'System Tools']");
+//    private final By DesignAndPhoto = By.xpath(".//div[1]/aside/div/nav/ul/li[5]/a[starts-with(text(), 'Design')]");
+//    private final By MobilePhone = By.xpath(".//div[1]/aside/div/nav/ul/li[6]/a[starts-with(text(), 'Mobile Phone')]");
+//    private final By DeveloperTools = By.xpath(".//div[1]/aside/div/nav/ul/li[7]/a[starts-with(text(), 'Developer Too')]");
+//    private final By Business= By.xpath(".//div[1]/aside/div/nav/ul/li[8]/a[starts-with(text(), 'Busi')]");
+//    private final By InternetTools = By.xpath(".//div[1]/aside/div/nav/ul/li[9]/a[starts-with(text(), 'Internet')]");
+//    private final By Education = By.xpath(".//div[1]/aside/div/nav/ul/li[10]/a[starts-with(text(), 'Edu')]");
+//    private final By Communication = By.xpath(".//div[1]/aside/div/nav/ul/li[11]/a[starts-with(text(), 'Comm')]");
+//    private final By AntivirusAndSecurity = By.xpath(".//div[1]/aside/div/nav/ul/li[12]/a[starts-with(text(), 'Anti')]");
+//    private final By Theming = By.xpath(".//div[1]/aside/div/nav/ul/li[13]/a[starts-with(text(), 'The')]");
+//    private final By Productivity = By.xpath(".//div[1]/aside/div/nav/ul/li[14]/a[starts-with(text(), 'Prod')]");
+//    private final By Lifestyle = By.xpath(".//div[1]/aside/div/nav/ul/li[15]/a[starts-with(text(), 'Life')]");
+//    private final By General = By.xpath(".//div[1]/aside/div/nav/ul/li[16]/a[starts-with(text(), 'Gener')]");
 
     public  void checkCategoriesLinks() {
+        for (int l = 0; l < pagesLocators.size(); l++) {
+            driver.findElement(By.id(getPagesLocators().get(l))).click(); // Возможно тут БАГ
+
+            if ()
+        }
+
         driver.findElement(AI).click();
         if (driver.findElement(necessaryNameAI).getText().equals(Asserts.namesPagesAsserts.get(0))) {
             System.out.println("Страница AI открыта успешно!");
