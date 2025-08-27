@@ -91,99 +91,51 @@ public class SIMainPage {
     // Локаторы для гиперссылок страниц категорий, чтобы переходить по ним
     private final ArrayList<String> pagesLocators = new ArrayList<>();
     public ArrayList<String> getPagesLocators() {
-        pagesLocators.add(0,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
-        pagesLocators.add(1,".//a[starts-with(text(),  'Audio')]"); // Audio & Video Page
-        pagesLocators.add(2,".//a[starts-with(text(), 'Games')]"); // Games Page
-        pagesLocators.add(3,".//a[text() = 'System Tools']"); // System Tools Page
-        pagesLocators.add(4,".//a[starts-with(text(), 'Design')]"); // "Design & Photo" Page
-        pagesLocators.add(5,".//a[starts-with(text(), 'Mobile Phone')]"); // "Mobile Phone Utilities" Page
-        pagesLocators.add(6,".//a[starts-with(text(), 'Developer Too')]"); // "Developer Tools" Page
-        pagesLocators.add(7,".//a[starts-with(text(), 'Busi')]"); // "Business" Page
-        pagesLocators.add(8,".//a[starts-with(text(), 'Internet')]"); // "Internet Tools" Page
-        pagesLocators.add(9,".//a[starts-with(text(), 'Edu')]"); // "Education" Page
-        pagesLocators.add(10,".//a[starts-with(text(), 'Comm')]"); // "Communication" Page
-        pagesLocators.add(11,".//a[starts-with(text(), 'Anti')]"); // "Antivirus & Security" Page
-        pagesLocators.add(12,".//a[starts-with(text(), 'The')]"); // "Theming" Page
-        pagesLocators.add(13,".//a[starts-with(text(), 'Prod')]"); // "Productivity" Page
-        pagesLocators.add(14,".//a[starts-with(text(), 'Life')]"); // "Lifestyle" Page
-        pagesLocators.add(15,".//a[starts-with(text(), 'Gener')]"); // "General" Page
+        pagesLocators.add(0, ".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
+        pagesLocators.add(1, ".//a[starts-with(text(),  'Audio')]"); // Audio & Video Page
+        pagesLocators.add(2, ".//a[starts-with(text(), 'Games')]"); // Games Page
+        pagesLocators.add(3, ".//a[text() = 'System Tools']"); // System Tools Page
+        pagesLocators.add(4, ".//a[starts-with(text(), 'Design')]"); // "Design & Photo" Page
+        pagesLocators.add(5, ".//a[starts-with(text(), 'Mobile Phone')]"); // "Mobile Phone Utilities" Page
+        pagesLocators.add(6, ".//a[starts-with(text(), 'Developer Too')]"); // "Developer Tools" Page
+        pagesLocators.add(7, ".//a[starts-with(text(), 'Busi')]"); // "Business" Page
+        pagesLocators.add(8, ".//a[starts-with(text(), 'Internet')]"); // "Internet Tools" Page
+        pagesLocators.add(9, ".//a[starts-with(text(), 'Edu')]"); // "Education" Page
+        pagesLocators.add(10, ".//a[starts-with(text(), 'Comm')]"); // "Communication" Page
+        pagesLocators.add(11, ".//a[starts-with(text(), 'Anti')]"); // "Antivirus & Security" Page
+        pagesLocators.add(12, ".//a[starts-with(text(), 'The')]"); // "Theming" Page
+        pagesLocators.add(13, ".//a[starts-with(text(), 'Prod')]"); // "Productivity" Page
+        pagesLocators.add(14, ".//a[starts-with(text(), 'Life')]"); // "Lifestyle" Page
+        pagesLocators.add(15, ".//a[starts-with(text(), 'Gener')]"); // "General" Page
         return pagesLocators;
     }
 
     // Лист для поиска ассертовых локаторов на открытых страницах категорий
     private final ArrayList<String> assertsNamePages = new ArrayList<>();
     public ArrayList<String> getAssertsNamePages() {
-        pagesLocators.add(0,".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
-        pagesLocators.add(1,".//a[starts-with(text(),  'Audio')]"); // Audio & Video Page
-        pagesLocators.add(2,".//a[starts-with(text(), 'Games')]"); // Games Page
-        pagesLocators.add(3,".//a[text() = 'System Tools']"); // System Tools Page
-        pagesLocators.add(4,".//a[starts-with(text(), 'Design')]"); // "Design & Photo" Page
-        pagesLocators.add(5,".//a[starts-with(text(), 'Mobile Phone')]"); // "Mobile Phone Utilities" Page
-        pagesLocators.add(6,".//a[starts-with(text(), 'Developer Too')]"); // "Developer Tools" Page
-        pagesLocators.add(7,".//a[starts-with(text(), 'Busi')]"); // "Business" Page
-        pagesLocators.add(8,".//a[starts-with(text(), 'Internet')]"); // "Internet Tools" Page
-        pagesLocators.add(9,".//a[starts-with(text(), 'Edu')]"); // "Education" Page
-        pagesLocators.add(10,".//a[starts-with(text(), 'Comm')]"); // "Communication" Page
-        pagesLocators.add(11,".//a[starts-with(text(), 'Anti')]"); // "Antivirus & Security" Page
-        pagesLocators.add(12,".//a[starts-with(text(), 'The')]"); // "Theming" Page
-        pagesLocators.add(13,".//a[starts-with(text(), 'Prod')]"); // "Productivity" Page
-        pagesLocators.add(14,".//a[starts-with(text(), 'Life')]"); // "Lifestyle" Page
-        pagesLocators.add(15,".//a[starts-with(text(), 'Gener')]"); // "General" Page
+        pagesLocators.add(0, ".//h1[text() = 'AI']"); // AI Page
+        pagesLocators.add(1, ".//h1[starts-with(text(),'Audio')]"); // Audio & Video Page
+        pagesLocators.add(2, ".//h1[starts-with(text(),'Game')]"); // Games Page
+        pagesLocators.add(3, ".//h1[starts-with(text(),'System')]"); // System Tools Page
+        pagesLocators.add(4, ".//h1[starts-with(text(),'Design')]"); // "Design & Photo" Page
+        pagesLocators.add(5, ".//h1[starts-with(text(),'Mobile')]"); // "Mobile Phone Utilities" Page
+        pagesLocators.add(6, ".//h1[starts-with(text(),'Devel')]"); // "Developer Tools" Page
+        pagesLocators.add(7, ".//h1[starts-with(text(),'Busi')]"); // "Business" Page
+        pagesLocators.add(8, ".//h1[starts-with(text(),'Internet')]"); // "Internet Tools" Page
+        pagesLocators.add(9, ".//h1[starts-with(text(),'Education')]"); // "Education" Page
+        pagesLocators.add(10, ".//h1[starts-with(text(),'Commu')]"); // "Communication" Page
+        pagesLocators.add(11, ".//h1[starts-with(text(),'Anti')]"); // "Antivirus & Security" Page
+        pagesLocators.add(12, ".//h1[starts-with(text(),'Them')]"); // "Theming" Page
+        pagesLocators.add(13, ".//h1[starts-with(text(),'Prod')]"); // "Productivity" Page
+        pagesLocators.add(14, ".//h1[starts-with(text(),'Lifest')]"); // "Lifestyle" Page
+        pagesLocators.add(15, ".//h1[starts-with(text(),'General')]"); // "General" Page
         return assertsNamePages;
     }
 
-
-
-//    private final By AI = By.xpath(".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']");
-//    private final By necessaryNameAI = By.xpath(".//section[1]/div/div/h1");
-//
-//    private final By AudioAndVideo = By.xpath(".//a[starts-with(text(),  'Audio')]");
-//    private final By audioAndVideoLocator = By.xpath("/html/body/div[1]/div/section[1]/div/div[1]/h1");
-//
-//    private final By Games = By.xpath(".//a[starts-with(text(), 'Games')]");
-//    private final By gamesLocator = By.xpath("/html/body/div[1]/div/section[1]/div/div[1]/h1");
-//
-//
-//    private final By SystemTools= By.xpath(".//div[1]/aside/div/nav/ul/li[4]/a[text() = 'System Tools']");
-//    private final By DesignAndPhoto = By.xpath(".//div[1]/aside/div/nav/ul/li[5]/a[starts-with(text(), 'Design')]");
-//    private final By MobilePhone = By.xpath(".//div[1]/aside/div/nav/ul/li[6]/a[starts-with(text(), 'Mobile Phone')]");
-//    private final By DeveloperTools = By.xpath(".//div[1]/aside/div/nav/ul/li[7]/a[starts-with(text(), 'Developer Too')]");
-//    private final By Business= By.xpath(".//div[1]/aside/div/nav/ul/li[8]/a[starts-with(text(), 'Busi')]");
-//    private final By InternetTools = By.xpath(".//div[1]/aside/div/nav/ul/li[9]/a[starts-with(text(), 'Internet')]");
-//    private final By Education = By.xpath(".//div[1]/aside/div/nav/ul/li[10]/a[starts-with(text(), 'Edu')]");
-//    private final By Communication = By.xpath(".//div[1]/aside/div/nav/ul/li[11]/a[starts-with(text(), 'Comm')]");
-//    private final By AntivirusAndSecurity = By.xpath(".//div[1]/aside/div/nav/ul/li[12]/a[starts-with(text(), 'Anti')]");
-//    private final By Theming = By.xpath(".//div[1]/aside/div/nav/ul/li[13]/a[starts-with(text(), 'The')]");
-//    private final By Productivity = By.xpath(".//div[1]/aside/div/nav/ul/li[14]/a[starts-with(text(), 'Prod')]");
-//    private final By Lifestyle = By.xpath(".//div[1]/aside/div/nav/ul/li[15]/a[starts-with(text(), 'Life')]");
-//    private final By General = By.xpath(".//div[1]/aside/div/nav/ul/li[16]/a[starts-with(text(), 'Gener')]");
-
-    public  void checkCategoriesLinks() {
-        for (int l = 0; l < pagesLocators.size(); l++) {
-            driver.findElement(By.id(getPagesLocators().get(l))).click(); // Возможно тут БАГ
+    public void checkCategoriesLinks() {
+        for (int i = 0; i < pagesLocators.size(); i++) {
+            driver.findElement(By.id(getPagesLocators().get(i))).click(); // Возможно тут БАГ
             if ()
-        }
-
-        driver.findElement(AI).click();
-        if (driver.findElement(necessaryNameAI).getText().equals(Asserts.namesPagesAsserts.get(0))) {
-            System.out.println("Страница AI открыта успешно!");
-        } else {
-            System.out.println("!!! Страница AI не открылась");
-        }
-
-        driver.findElement(AudioAndVideo).click();
-        if (driver.findElement(audioAndVideoLocator).getText().equals(Asserts.namesPagesAsserts.get(1))
-        ) {
-            System.out.println("Страница Audio & Video открыта успешно!");
-        } else {
-            System.out.println("!!! Страница Audio & Video не открыта!");
-        }
-
-        driver.findElement(Games).click();
-        if (driver.findElement(gamesLocator).getText().equals(Asserts.namesPagesAsserts.get(2))) {
-            System.out.println("Страница Games открыта успешно!");
-        } else {
-            System.out.println("!!! Страница Games не открыта!");
         }
     }
 
@@ -212,106 +164,107 @@ public class SIMainPage {
 
      */
 
-    //Смоук - кейс №3 переход на сайт MI через лист
-    //Ассерты для проверок имеющихся кнопок в листе и методы для этого
-    private final By textMiBtn = By.xpath("/html/body/header/div[1]/div/div[4]/div[1]/div[2]/nav/a[1]");
-    private final By textSiBtn = By.xpath("/html/body/header/div[1]/div/div[4]/div[1]/div[2]/nav/a[2]");
+        //Смоук - кейс №3 переход на сайт MI через лист
+        //Ассерты для проверок имеющихся кнопок в листе и методы для этого
+        private final By textMiBtn = By.xpath("/html/body/header/div[1]/div/div[4]/div[1]/div[2]/nav/a[1]");
+        private final By textSiBtn = By.xpath("/html/body/header/div[1]/div/div[4]/div[1]/div[2]/nav/a[2]");
 
-    public String getMiTextBtn() {
-        return driver.findElement(textMiBtn).getText();
-    }
+        public String getMiTextBtn () {
+            return driver.findElement(textMiBtn).getText();
+        }
 
-    public String getSiTextBtn() {
-        return driver.findElement(textSiBtn).getText();
-    }
+        public String getSiTextBtn () {
+            return driver.findElement(textSiBtn).getText();
+        }
 
-    public MIMainPage goToMIPage() {
-        driver.findElement(openLi).click();
-        String siText = "Windows";
-        String miText = "Mac";
-        try {
-            if (getMiTextBtn().equals(miText) && getSiTextBtn().equals(siText)) {
-                // Логирую локатор успешного нахождения нужной кнопки
-                System.out.println("Логирую локатор для кнопки: " + driver.findElement(btnGoMI).getText());
-                driver.findElement(btnGoMI).click();
+        public MIMainPage goToMIPage () {
+            driver.findElement(openLi).click();
+            String siText = "Windows";
+            String miText = "Mac";
+            try {
+                if (getMiTextBtn().equals(miText) && getSiTextBtn().equals(siText)) {
+                    // Логирую локатор успешного нахождения нужной кнопки
+                    System.out.println("Логирую локатор для кнопки: " + driver.findElement(btnGoMI).getText());
+                    driver.findElement(btnGoMI).click();
 
-            } else {
-                System.out.println("Тест кейс №3 провалился!");
+                } else {
+                    System.out.println("Тест кейс №3 провалился!");
+                }
+                return new MIMainPage(driver);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            return new MIMainPage(driver);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            return null;
         }
-        return null;
-    }
 
-    //Смоук - кейс №4 ПРОДОЛЖЕНИЕ с обработкой ассерта
-    private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
+        //Смоук - кейс №4 ПРОДОЛЖЕНИЕ с обработкой ассерта
+        private final By necessaryNamePage = By.cssSelector("body > div.wrapper-content > aside > div > div > span");
 
-    public boolean checkSuccessRedirect() {
-        try {
-            new WebDriverWait(driver, 5).until(ExpectedConditions.textToBe(necessaryNamePage, "Windows"));
-            return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_SI_PAGE);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
-
-    //Смоук - кейс №5 проверка работы редиректов на страницы посредством основных кнопок сервиса
-    private final By btnGoMIService = By.cssSelector("body > div.wrapper-content > aside > div > div > a");
-
-    public MIMainPage goToMiPageService() {
-        try {
-            driver.findElement(btnGoMIService).click();
-            return new MIMainPage(driver);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return null;
-    }
-
-    //ПРОДОЛЖЕНИЕ тест №5, после обратного редиректа, здесь уже задаю ассерты и в конечном итоге проверяю
-    private final By checkNamePage = By.cssSelector("#top > div > a > img");
-    private final String needNamePage = "Software Informer";
-
-    public void checkSuccessRedirectBetweenServices() {
-        try {
-            String lambda = driver.findElement(checkNamePage).getAttribute("alt");
-            if (Objects.equals(lambda, needNamePage)) {
-                System.out.println("Тест №5 прошел успешно, адрессация и обратная адрессация работают корректно!");
-            } else {
-                System.out.println("Тест №5 завершился не удачно, возможно проблема с локаторами:");
-                System.out.println("Локаторы для логгирования они должны быть одинаковыми: " + lambda + "\\" + needNamePage);
+        public boolean checkSuccessRedirect () {
+            try {
+                new WebDriverWait(driver, 5).until(ExpectedConditions.textToBe(necessaryNamePage, "Windows"));
+                return driver.findElement(necessaryNamePage).getText().contains(Asserts.NAME_SI_PAGE);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+            return false;
         }
-    }
 
-    //Смоук - кейс №6, работоспособность кнопки Top
-    private final By btnGoTop = By.cssSelector("#float_top");
-    //Локатор для скролла вниз
-    private final By footerLocator = By.cssSelector("body > div.wrapper-content > div > section.questions > h2");
-    private final By headLocator = By.cssSelector("#search_inp");
+        //Смоук - кейс №5 проверка работы редиректов на страницы посредством основных кнопок сервиса
+        private final By btnGoMIService = By.cssSelector("body > div.wrapper-content > aside > div > div > a");
 
-    public void checkOperabilityBtnTop() {
-        WebElement element = driver.findElement(footerLocator);
-        try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-            if (element.isDisplayed() && driver.findElement(btnGoTop).isDisplayed()) {
-                driver.findElement(btnGoTop).click();
-                driver.findElement(headLocator).isDisplayed();
-                System.out.println("Тест №6 прошел успешно! Скролл сработал");
-            } else {
-                System.out.println("Скролл наверх не сработал");
+        public MIMainPage goToMiPageService () {
+            try {
+                driver.findElement(btnGoMIService).click();
+                return new MIMainPage(driver);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-        } catch (Exception e) {
-            System.out.println("Ошибка: " + e.getMessage());
-            System.out.println("Тест №6 провалился!");
+            return null;
         }
-    }
 
-    // Смоук - кейс №7, переход на категорию AI
-}
+        //ПРОДОЛЖЕНИЕ тест №5, после обратного редиректа, здесь уже задаю ассерты и в конечном итоге проверяю
+        private final By checkNamePage = By.cssSelector("#top > div > a > img");
+        private final String needNamePage = "Software Informer";
+
+        public void checkSuccessRedirectBetweenServices () {
+            try {
+                String lambda = driver.findElement(checkNamePage).getAttribute("alt");
+                if (Objects.equals(lambda, needNamePage)) {
+                    System.out.println("Тест №5 прошел успешно, адрессация и обратная адрессация работают корректно!");
+                } else {
+                    System.out.println("Тест №5 завершился не удачно, возможно проблема с локаторами:");
+                    System.out.println("Локаторы для логгирования они должны быть одинаковыми: " + lambda + "\\" + needNamePage);
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        //Смоук - кейс №6, работоспособность кнопки Top
+        private final By btnGoTop = By.cssSelector("#float_top");
+        //Локатор для скролла вниз
+        private final By footerLocator = By.cssSelector("body > div.wrapper-content > div > section.questions > h2");
+        private final By headLocator = By.cssSelector("#search_inp");
+
+        public void checkOperabilityBtnTop () {
+            WebElement element = driver.findElement(footerLocator);
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
+                if (element.isDisplayed() && driver.findElement(btnGoTop).isDisplayed()) {
+                    driver.findElement(btnGoTop).click();
+                    driver.findElement(headLocator).isDisplayed();
+                    System.out.println("Тест №6 прошел успешно! Скролл сработал");
+                } else {
+                    System.out.println("Скролл наверх не сработал");
+                }
+            } catch (Exception e) {
+                System.out.println("Ошибка: " + e.getMessage());
+                System.out.println("Тест №6 провалился!");
+            }
+        }
+
+        // Смоук - кейс №7, переход на категорию AI
+    }
+    }
 
