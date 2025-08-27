@@ -122,7 +122,7 @@ public class SIMainPage {
             By.xpath("//h1[starts-with(text(),'Education')]"),
             By.xpath("//h1[starts-with(text(),'Commu')]"),
             By.xpath("//h1[starts-with(text(),'Anti')]"),
-            By.xpath("//h1[starts-with(text(),'Them')]"),
+            By.xpath("//h1[starts-with(text(),'Them')]"), // НА ЭТОМ ВАЛИТСЯ
             By.xpath("//h1[starts-with(text(),'Prod')]"),
             By.xpath("//h1[starts-with(text(),'Lifest')]"),
             By.xpath("//h1[starts-with(text(),'General')]")
