@@ -89,53 +89,59 @@ public class SIMainPage {
                                          */
 
     // Локаторы для гиперссылок страниц категорий, чтобы переходить по ним
-    private final ArrayList<String> pagesLocators = new ArrayList<>();
-    public ArrayList<String> getPagesLocators() {
-        pagesLocators.add(0, ".//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"); // AI Page
-        pagesLocators.add(1, ".//a[starts-with(text(),  'Audio')]"); // Audio & Video Page
-        pagesLocators.add(2, ".//a[starts-with(text(), 'Games')]"); // Games Page
-        pagesLocators.add(3, ".//a[text() = 'System Tools']"); // System Tools Page
-        pagesLocators.add(4, ".//a[starts-with(text(), 'Design')]"); // "Design & Photo" Page
-        pagesLocators.add(5, ".//a[starts-with(text(), 'Mobile Phone')]"); // "Mobile Phone Utilities" Page
-        pagesLocators.add(6, ".//a[starts-with(text(), 'Developer Too')]"); // "Developer Tools" Page
-        pagesLocators.add(7, ".//a[starts-with(text(), 'Busi')]"); // "Business" Page
-        pagesLocators.add(8, ".//a[starts-with(text(), 'Internet')]"); // "Internet Tools" Page
-        pagesLocators.add(9, ".//a[starts-with(text(), 'Edu')]"); // "Education" Page
-        pagesLocators.add(10, ".//a[starts-with(text(), 'Comm')]"); // "Communication" Page
-        pagesLocators.add(11, ".//a[starts-with(text(), 'Anti')]"); // "Antivirus & Security" Page
-        pagesLocators.add(12, ".//a[starts-with(text(), 'The')]"); // "Theming" Page
-        pagesLocators.add(13, ".//a[starts-with(text(), 'Prod')]"); // "Productivity" Page
-        pagesLocators.add(14, ".//a[starts-with(text(), 'Life')]"); // "Lifestyle" Page
-        pagesLocators.add(15, ".//a[starts-with(text(), 'Gener')]"); // "General" Page
-        return pagesLocators;
-    }
+    private final List<By> categoryLinks = List.of(
+            By.xpath("//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"),
+            By.xpath("//a[starts-with(text(), 'Audio')]"),
+            By.xpath("//a[starts-with(text(), 'Games')]"),
+            By.xpath("//a[text() = 'System Tools']"),
+            By.xpath("//a[starts-with(text(), 'Design')]"),
+            By.xpath("//a[starts-with(text(), 'Mobile Phone')]"),
+            By.xpath("//a[starts-with(text(), 'Developer Too')]"),
+            By.xpath("//a[starts-with(text(), 'Busi')]"),
+            By.xpath("//a[starts-with(text(), 'Internet')]"),
+            By.xpath("//a[starts-with(text(), 'Edu')]"),
+            By.xpath("//a[starts-with(text(), 'Comm')]"),
+            By.xpath("//a[starts-with(text(), 'Anti')]"),
+            By.xpath("//a[starts-with(text(), 'The')]"),
+            By.xpath("//a[starts-with(text(), 'Prod')]"),
+            By.xpath("//a[starts-with(text(), 'Life')]"),
+            By.xpath("//a[starts-with(text(), 'Gener')]")
+    );
 
     // Лист для поиска ассертовых локаторов на открытых страницах категорий
-    private final ArrayList<String> assertsNamePages = new ArrayList<>();
-    public ArrayList<String> getAssertsNamePages() {
-        pagesLocators.add(0, ".//h1[text() = 'AI']"); // AI Page
-        pagesLocators.add(1, ".//h1[starts-with(text(),'Audio')]"); // Audio & Video Page
-        pagesLocators.add(2, ".//h1[starts-with(text(),'Game')]"); // Games Page
-        pagesLocators.add(3, ".//h1[starts-with(text(),'System')]"); // System Tools Page
-        pagesLocators.add(4, ".//h1[starts-with(text(),'Design')]"); // "Design & Photo" Page
-        pagesLocators.add(5, ".//h1[starts-with(text(),'Mobile')]"); // "Mobile Phone Utilities" Page
-        pagesLocators.add(6, ".//h1[starts-with(text(),'Devel')]"); // "Developer Tools" Page
-        pagesLocators.add(7, ".//h1[starts-with(text(),'Busi')]"); // "Business" Page
-        pagesLocators.add(8, ".//h1[starts-with(text(),'Internet')]"); // "Internet Tools" Page
-        pagesLocators.add(9, ".//h1[starts-with(text(),'Education')]"); // "Education" Page
-        pagesLocators.add(10, ".//h1[starts-with(text(),'Commu')]"); // "Communication" Page
-        pagesLocators.add(11, ".//h1[starts-with(text(),'Anti')]"); // "Antivirus & Security" Page
-        pagesLocators.add(12, ".//h1[starts-with(text(),'Them')]"); // "Theming" Page
-        pagesLocators.add(13, ".//h1[starts-with(text(),'Prod')]"); // "Productivity" Page
-        pagesLocators.add(14, ".//h1[starts-with(text(),'Lifest')]"); // "Lifestyle" Page
-        pagesLocators.add(15, ".//h1[starts-with(text(),'General')]"); // "General" Page
-        return assertsNamePages;
-    }
+    private final List<By> categoryHeaders = List.of(
+            By.xpath("//h1[text() = 'AI']"),
+            By.xpath("//h1[starts-with(text(),'Audio')]"),
+            By.xpath("//h1[starts-with(text(),'Game')]"),
+            By.xpath("//h1[starts-with(text(),'System')]"),
+            By.xpath("//h1[starts-with(text(),'Design')]"),
+            By.xpath("//h1[starts-with(text(),'Mobile')]"),
+            By.xpath("//h1[starts-with(text(),'Devel')]"),
+            By.xpath("//h1[starts-with(text(),'Busi')]"),
+            By.xpath("//h1[starts-with(text(),'Internet')]"),
+            By.xpath("//h1[starts-with(text(),'Education')]"),
+            By.xpath("//h1[starts-with(text(),'Commu')]"),
+            By.xpath("//h1[starts-with(text(),'Anti')]"),
+            By.xpath("//h1[starts-with(text(),'Them')]"),
+            By.xpath("//h1[starts-with(text(),'Prod')]"),
+            By.xpath("//h1[starts-with(text(),'Lifest')]"),
+            By.xpath("//h1[starts-with(text(),'General')]")
+    );
 
     public void checkCategoriesLinks() {
-        for (int i = 0; i < pagesLocators.size(); i++) {
-            driver.findElement(By.id(getPagesLocators().get(i))).click(); // Возможно тут БАГ
-            if ()
+        for (int i = 0; i < categoryLinks.size(); i++) {
+            driver.findElement(categoryLinks.get(i)).click();
+
+            WebElement header = driver.findElement(categoryHeaders.get(i));
+            String actual = header.getText();
+            String expected = Asserts.namesPagesAsserts.get(i);
+
+
+            if (actual.equals(expected)) {
+                System.out.println("Страница " + Asserts.namesPagesAsserts.get(i) + " открыта успешно");
+            } else {
+                System.out.println("!!!Ошибка! Страница " + Asserts.namesPagesAsserts.get(i) + " не была открыта, либо локатор ошибочен");
+            }
         }
     }
 
@@ -266,5 +272,5 @@ public class SIMainPage {
 
         // Смоук - кейс №7, переход на категорию AI
     }
-    }
+
 
