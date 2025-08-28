@@ -50,24 +50,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.CheckSICategories.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestClass.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestClass.t7_checkCategoryPages.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Diplom_2 [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Diplom_2 [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Diplom_2 [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Diplom_2 [validate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/denismart/Git/SeleniumSIMI&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.CheckSICategories.executor": "Run",
+    "JUnit.TestClass.executor": "Run",
+    "JUnit.TestClass.t5_redirectBetweenPages.executor": "Run",
+    "JUnit.TestClass.t7_checkCategoryPages.executor": "Run",
+    "Maven.Diplom_2 [clean].executor": "Run",
+    "Maven.Diplom_2 [compile].executor": "Run",
+    "Maven.Diplom_2 [test].executor": "Run",
+    "Maven.Diplom_2 [validate].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/denismart/Git/SeleniumSIMI"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="JUnit.TestClass.t7_checkCategoryPages">
+    <configuration name="TestClass.t5_redirectBetweenPages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Diplom_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestClass" />
+      <option name="METHOD_NAME" value="t5_redirectBetweenPages" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestClass.t7_checkCategoryPages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diplom_2" />
       <option name="PACKAGE_NAME" value="" />
@@ -81,6 +92,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestClass.t7_checkCategoryPages" />
+        <item itemvalue="JUnit.TestClass.t5_redirectBetweenPages" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756301111163</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Новый тест">
+      <option name="closed" value="true" />
+      <created>1756301982376</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1756301982376</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

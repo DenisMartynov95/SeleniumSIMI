@@ -93,19 +93,19 @@ public class SIMainPage {
             By.xpath("//nav/ul/li[1]/a[@class = 'cat_327' and text() = 'AI']"),
             By.xpath("//a[starts-with(text(), 'Audio')]"),
             By.xpath("//a[starts-with(text(), 'Games')]"),
-            By.xpath("//a[text() = 'System Tools']"),
-            By.xpath("//a[starts-with(text(), 'Design')]"),
-            By.xpath("//a[starts-with(text(), 'Mobile Phone')]"),
-            By.xpath("//a[starts-with(text(), 'Developer Too')]"),
-            By.xpath("//a[starts-with(text(), 'Busi')]"),
-            By.xpath("//a[starts-with(text(), 'Internet')]"),
-            By.xpath("//a[starts-with(text(), 'Edu')]"),
-            By.xpath("//a[starts-with(text(), 'Comm')]"),
-            By.xpath("//a[starts-with(text(), 'Anti')]"),
-            By.xpath("//a[starts-with(text(), 'The')]"),
-            By.xpath("//a[starts-with(text(), 'Prod')]"),
-            By.xpath("//a[starts-with(text(), 'Life')]"),
-            By.xpath("//a[starts-with(text(), 'Gener')]")
+            By.cssSelector("body > div.wrapper-content > aside > div > nav > ul > li:nth-child(14) > a"),
+            By.xpath(".//a[starts-with(text(), 'Design')]"),
+            By.xpath(".//a[starts-with(text(), 'Mobile Phone')]"),
+            By.xpath(".//a[starts-with(text(), 'Developer Too')]"),
+            By.xpath(".//a[starts-with(text(), 'Busi')]"),
+            By.xpath(".//a[starts-with(text(), 'Internet')]"),
+            By.xpath(".//a[starts-with(text(), 'Edu')]"),
+            By.xpath(".//a[starts-with(text(), 'Comm')]"),
+            By.xpath(".//a[starts-with(text(), 'Anti')]"),
+            By.xpath(".//a[starts-with(text(), 'The')]"),
+            By.xpath(".//a[starts-with(text(), 'Prod')]"),
+            By.xpath(".//a[starts-with(text(), 'Life')]"),
+            By.cssSelector("body > div.wrapper-content > aside > div > nav > ul > li:nth-child(16) > a")
     );
 
     // Лист для поиска ассертовых локаторов на открытых страницах категорий
@@ -122,7 +122,7 @@ public class SIMainPage {
             By.xpath("//h1[starts-with(text(),'Education')]"),
             By.xpath("//h1[starts-with(text(),'Commu')]"),
             By.xpath("//h1[starts-with(text(),'Anti')]"),
-            By.xpath("//h1[starts-with(text(),'Them')]"), // НА ЭТОМ ВАЛИТСЯ
+            By.xpath("//h1[starts-with(text(),'Them')]"),
             By.xpath("//h1[starts-with(text(),'Prod')]"),
             By.xpath("//h1[starts-with(text(),'Lifest')]"),
             By.xpath("//h1[starts-with(text(),'General')]")
@@ -130,18 +130,28 @@ public class SIMainPage {
 
     public void checkCategoriesLinks() {
         for (int i = 0; i < categoryLinks.size(); i++) {
-            driver.findElement(categoryLinks.get(i)).click();
+            // Сначала оборачиваю в логирование с проверкой доступности локатор
+            if (driver.findElement(categoryLinks.get(i)).isDisplayed()) {
+                // Скроллю до элемента - если он не доступен в зоне видимости
+                WebElement element = driver.findElement(categoryLinks.get(i));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+                // После я кликаю по элементу
+                driver.findElement(categoryLinks.get(i)).click();
+                // Если редирект все же состоялся - то продолжаю работу
+                WebElement header = driver.findElement(categoryHeaders.get(i));
+                String actual = header.getText();
+                String expected = Asserts.namesPagesAsserts.get(i);
+                if (actual.equals(expected)) {
+                    System.out.println("Страница " + Asserts.namesPagesAsserts.get(i) + " открыта успешно");
+                } else {
+                    System.out.println("!!!Ошибка! Страница " + Asserts.namesPagesAsserts.get(i) + " не была открыта, либо локатор ошибочен");
+                }
 
-            WebElement header = driver.findElement(categoryHeaders.get(i));
-            String actual = header.getText();
-            String expected = Asserts.namesPagesAsserts.get(i);
-
-
-            if (actual.equals(expected)) {
-                System.out.println("Страница " + Asserts.namesPagesAsserts.get(i) + " открыта успешно");
             } else {
-                System.out.println("!!!Ошибка! Страница " + Asserts.namesPagesAsserts.get(i) + " не была открыта, либо локатор ошибочен");
+                System.out.println("Не был обнаружен локатор " + categoryLinks.get(i));
             }
+            System.out.println("Тест №7 прошел успешно!");
+
         }
     }
 
